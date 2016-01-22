@@ -17,7 +17,7 @@ $(document).ready(function() {
                 var abstract = results[a].abstract;
                 var articleURL = results[a].url;
                 
-                var imgMarkup = '<div class="col-sm-6 image" style="padding-top: 25px;" data-item=\"' + a + '\"><img src="' + image + '" height="250px" width="250px"><div class="info"> <h3>' + headline + '</h3>'+'<p>' + abstract + '</p>' + '<h6> Click: <a href=' + articleURL + '>Here</a> for the full article.</h3></div></div>';
+                var imgMarkup = '<div class="col-sm-6 image" style="padding-top: 25px; font-family: sans-serif;" data-item=\"' + a + '\"><img src="' + image + '" height="250px" width="250px"><div class="info"> <h3>' + headline + '</h3>'+'<p>' + abstract + '</p>' + '<h6> Click: <a href=' + articleURL + '>Here</a> for the full article.</h3></div></div>';
                 
                 items.push(imgMarkup)
                 
@@ -64,7 +64,7 @@ $(document).ready(function() {
                     else
                         var image = article.multimedia[1].url;
                     
-                    var markup = '<div class="col-sm-6 image" style="padding-top: 25px; font-style: sans-serif;" data-item=\"' + i + '\"><img src="http://www.nytimes.com/' + image + '" height="250px" width="250px"><div class="info"> <h3>' + headline + '</h3>'+'<p>' + snippet + '</p>' + '<h6> Click: <a href=' + articleURL + '>Here</a> for the full article.</h3></div></div>';
+                    var markup = '<div class="col-sm-6 image" style="padding-top: 25px; font-family: sans-serif;" data-item=\"' + i + '\"><img src="http://www.nytimes.com/' + image + '" height="250px" width="250px"><div class="info"> <h3>' + headline + '</h3>'+'<p>' + snippet + '</p>' + '<h6> Click: <a href=' + articleURL + '>Here</a> for the full article.</h3></div></div>';
                     console.log(markup);
                     items.push(markup);
                     $('#response').html($('#response').html() + markup);
