@@ -13,7 +13,7 @@ $(document).ready(function() {
                     var snippet = article.snippet;
                     var articleURL = article.web_url;
                     
-                    var markup = '<div class="row section" data-item=\"' + i + '\"> <h3>' + headline + '</h3>'+'<p>' + snippet + '</p>' + '<h6> Click: <a href=' + articleURL + '>Here</a> for details.</h3></div>';
+                    var markup = '<div class="row section" data-item=\"' + i + '\"> <h3>' + headline + '</h3>'+'<p>' + snippet + '</p>' + '<h6> Click: <a href=' + articleURL + '>Here</a> for the full article.</h3></div>';
                     console.log(markup);
                     items.push(markup);
                     $('#response').html($('#response').html() + markup);
