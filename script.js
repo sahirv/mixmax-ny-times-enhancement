@@ -8,16 +8,15 @@ $(document).ready(function() {
             var results = res.results;
             console.log(results);
             for (var a = 0; a < results.length; a++){
-                if (results[a].multimedia == "")
-                    image = "";
-                else
-                    var image = results[a].multimedia[1].url;
+                var image = "";
+                if (results[a].multimedia != "")
+                    image = results[a].multimedia[1].url;
                 
                 var headline = results[a].title; 
                 var abstract = results[a].abstract;
                 var articleURL = results[a].url;
                 
-                var imgMarkup = '<div class="col-sm-6 image" style="padding-top: 25px; font-family: sans-serif;" data-item=\"' + a + '\"><img src="' + image + '" height="250px" width="250px"><div class="info"> <h3>' + headline + '</h3>'+'<p>' + abstract + '</p>' + '<h6> Click: <a href=' + articleURL + '>Here</a> for the full article.</h3></div></div>';
+                var imgMarkup = '<div class="col-sm-6 image" style="padding-top: 25px; font-family: sans-serif;" data-item=\"' + a + '\"><img src="' + image + '" alt="No image received." onError="this.onerror=null;this.src=\'https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg\';" height="250px" width="250px"><div class="info"> <h3>' + headline + '</h3>'+'<p>' + abstract + '</p>' + '<h6> Click: <a href=' + articleURL + '>Here</a> for the full article.</h3></div></div>';
                 
                 items.push(imgMarkup)
                 
@@ -59,12 +58,10 @@ $(document).ready(function() {
                     var snippet = article.snippet;
                     var articleURL = article.web_url;
                     
-                    if (article.multimedia == "")
-                        image = "";
-                    else
+                    if (article.multimedia != "")
                         var image = article.multimedia[1].url;
                     
-                    var markup = '<div class="col-sm-6 image" style="padding-top: 25px; font-family: sans-serif;" data-item=\"' + i + '\"><img src="http://www.nytimes.com/' + image + '" height="250px" width="250px"><div class="info"> <h3>' + headline + '</h3>'+'<p>' + snippet + '</p>' + '<h6> Click: <a href=' + articleURL + '>Here</a> for the full article.</h3></div></div>';
+                    var markup = '<div class="col-sm-6 image" style="padding-top: 25px; font-family: sans-serif;" data-item=\"' + i + '\"><img src="http://www.nytimes.com/' + image + '" alt="No image received." height="250px" width="250px"><div class="info"> <h3>' + headline + '</h3>'+'<p>' + snippet + '</p>' + '<h6> Click: <a href=' + articleURL + '>Here</a> for the full article.</h3></div></div>';
                     console.log(markup);
                     items.push(markup);
                     $('#response').html($('#response').html() + markup);
